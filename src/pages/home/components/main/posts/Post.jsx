@@ -1,17 +1,23 @@
-import React from 'react'
-import { PostContainer } from '../Main.styled'
+import React from "react";
+import { PostContainer, VoteButton } from "../Main.styled";
 
 function Post() {
   return (
     <PostContainer>
-        <div id='dark-side'>
-
-        </div>
+      <div id="dark-side">
         <div>
-            post goes here
+          <VoteButton>
+            <i className="fa-solid fa-up-long"></i>
+          </VoteButton>
+          <div>614</div>
+          <VoteButton>
+            <i className="fa-solid fa-down-long"></i>
+          </VoteButton>
         </div>
+      </div>
+      <div>post goes here hopefully</div>
     </PostContainer>
-  )
+  );
 }
 
-export default Post
+export default Post;
