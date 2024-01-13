@@ -1,11 +1,15 @@
 import { MainContainer } from "./Main.styled";
-
+import Posts from "./posts/Posts";
+import Dashboard from "./dashboard/Dashboard";
 import React from 'react'
+
 
 function Main() {
   return (
     <MainContainer>
-        posts here
+        <Posts></Posts>
+        <Dashboard></Dashboard>
+        
     </MainContainer>
   )
 }

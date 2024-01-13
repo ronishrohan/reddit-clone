@@ -172,7 +172,7 @@ export const SearchContainer = styled.div`
     width: 100%;
   }
   input:focus & {
-    background-color: aqua;
+    
   }
   &:hover {
     border-color: white;

@@ -1,16 +1,32 @@
-
-import Main from './components/main/Main'
-import { RootContainer } from './GlobalStyles'
 import React from 'react'
-import Navbar from './components/navbar/Navbar'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Home from './pages/home/Home'
+import Submit from './pages/submit/Submit'
+import Root from './Root'
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Root></Root>,
+        children: [
+            {
+                path: "/",
+                element: <Home></Home>
+            },
+            {
+                path: "/submit",
+                element: <Submit></Submit>
+            }
+        ]
+    },
+    
+])
 
 function App() {
-  return<>
-    <RootContainer>
-      <Navbar></Navbar>
-      <Main></Main>
-    </RootContainer>
-  </>
+  return (
+    
+    <RouterProvider router={router} ></RouterProvider>
+  )
 }
 
 export default App
