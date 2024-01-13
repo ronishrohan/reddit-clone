@@ -1,9 +1,15 @@
-import Navbar from './components/navbar/Navbar'
+
+import Main from './components/main/Main'
+import { RootContainer } from './GlobalStyles'
 import React from 'react'
+import Navbar from './components/navbar/Navbar'
 
 function App() {
   return<>
-    <Navbar></Navbar>
+    <RootContainer>
+      <Navbar></Navbar>
+      <Main></Main>
+    </RootContainer>
   </>
 }
 
