@@ -4,8 +4,8 @@ import Profile from './Profile'
 function Actions() {
   return (
     <ActionsContainer>
-        <ActionsButton>
-          <a href="#">
+        <ActionsButton  >
+          <a href="#" style={{rotate:"45deg"}} >
             <i className="fa-regular fa-circle-up"></i>
           </a>
         </ActionsButton>

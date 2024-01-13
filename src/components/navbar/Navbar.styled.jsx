@@ -32,6 +32,9 @@ export const LogoContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 1070px) {
+      display: none;
+    }
   }
   svg {
     height: 32px;
@@ -46,7 +49,7 @@ export const CommunitiesContainer = styled.div`
   display: flex;
   flex: none;
   align-items: center;
-  width: 270px;
+  
   border: 1px solid transparent;
   border-radius: 4px;
   height: 34px;
@@ -64,22 +67,31 @@ export const CommunitiesContainer = styled.div`
   }
   i:last-child {
     font-size: 14px;
-    margin-left: auto;
+    
     margin-right: 14px;
     font-weight: 600;
+  }
+  div{
+    width: 190px;
+    @media (max-width: 995px) {
+      display: none;
+    }
   }
 `;
 
 export const ProfileContainer = styled.div`
   cursor: pointer;
-  width: 203px;
+  margin-left: 10px;
   height: 42px;
-  margin-left: auto;
+  
   display: flex;
   align-items: center;
   border: 1px solid transparent;
   border-radius: 4px;
   padding-inline: 8px;
+  @media (max-width: 1210px){
+    height: 32px;
+  }
   gap: 5px;
   &:hover {
     border-color: #343536;
@@ -88,18 +100,48 @@ export const ProfileContainer = styled.div`
     font-size: 26px;
   }
   i:last-child {
-    margin-left: auto;
+    
     font-size: 14px;
     color: #777777;
-    margin-right: 4px;
+    margin-inline: 4px;
+  }
+`;
+export const UsernameContainer = styled.div`
+  font-family: IBM Plex Sans;
+  display: flex;
+  width: 150px;
+  flex-direction: column;
+  font-size: 12px;
+  gap: 2px;
+
+  @media (max-width: 1210px){
+    display: none;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  div i {
+    color: orangered;
+    font-size: 12px;
+  }
+  div div {
+    color: #afafaf;
   }
 `;
 export const ActionsContainer = styled.div`
   flex: none;
-  width: 502px;
+  
   height: 100%;
   align-items: center;
   display: flex;
+  & > div:first-child{
+    @media (max-width: 790px) {
+      display: none;
+    }
+  }
 `;
 
 export const SearchContainer = styled.div`
@@ -138,26 +180,7 @@ export const SearchContainer = styled.div`
   }
 `;
 
-export const UsernameContainer = styled.div`
-  font-family: IBM Plex Sans;
-  display: flex;
-  flex-direction: column;
-  font-size: 12px;
-  gap: 2px;
 
-  div {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-  div i {
-    color: orangered;
-    font-size: 12px;
-  }
-  div div {
-    color: #afafaf;
-  }
-`;
 
 export const ActionsButton = styled.div`
   color: #${font_color};
