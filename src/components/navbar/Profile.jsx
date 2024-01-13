@@ -1,10 +1,17 @@
 import React from 'react'
-import { ProfileContainer } from './navbar.styled'
+import { ProfileContainer, UsernameContainer } from './navbar.styled'
 function Profile() {
   return (
     <ProfileContainer>
       <i className="fa-solid fa-circle-user"></i>
-      <div></div>
+      <UsernameContainer>
+        <div>ronish</div>
+        <div>
+          <i className="fa-solid fa-dharmachakra"></i>
+          <div>3.0k karma</div>
+        </div>
+      </UsernameContainer>
+      <i className="fa-solid fa-angle-down"></i>
     </ProfileContainer>
   )
 }

@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
+const font_color = "d7dadc";
+
 export const NavbarContainer = styled.div`
-  color: #d7dadc;
+  color: #${font_color};
   font-family: IBM Plex Sans, sans-serif;
   position: fixed;
   width: 100%;
@@ -17,11 +19,12 @@ export const NavbarContainer = styled.div`
 `;
 
 export const LogoContainer = styled.div`
-  cursor: pointer;
-  height: 32px;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
+  a {
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
   #reddit-logo-text svg {
     height: 22px;
   }
@@ -77,8 +80,18 @@ export const ProfileContainer = styled.div`
   border: 1px solid transparent;
   border-radius: 4px;
   padding-inline: 8px;
-  &:hover{
+  gap: 5px;
+  &:hover {
     border-color: #343536;
+  }
+  i {
+    font-size: 26px;
+  }
+  i:last-child {
+    margin-left: auto;
+    font-size: 14px;
+    color: #777777;
+    margin-right: 4px;
   }
 `;
 export const ActionsContainer = styled.div`
@@ -87,7 +100,6 @@ export const ActionsContainer = styled.div`
   height: 100%;
   align-items: center;
   display: flex;
-  
 `;
 
 export const SearchContainer = styled.div`
@@ -103,11 +115,11 @@ export const SearchContainer = styled.div`
   display: flex;
   align-items: center;
   padding-inline: 14px;
-  i{
+  i {
     font-size: 18px;
     margin-right: 10px;
   }
-  input{
+  input {
     height: 60%;
     font-family: IBM Plex Sans;
     font-weight: 100;
@@ -115,12 +127,110 @@ export const SearchContainer = styled.div`
     border: none;
     background: none;
     color: white;
+    width: 100%;
   }
-  input:focus &{
+  input:focus & {
     background-color: aqua;
   }
-  &:hover{
+  &:hover {
     border-color: white;
     background-color: #1a1a1b;
+  }
+`;
+
+export const UsernameContainer = styled.div`
+  font-family: IBM Plex Sans;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  gap: 2px;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  div i {
+    color: orangered;
+    font-size: 12px;
+  }
+  div div {
+    color: #afafaf;
+  }
+`;
+
+export const ActionsButton = styled.div`
+  color: #${font_color};
+  width: 32px;
+  height: 32px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  &:hover {
+    background-color: #2d2d2e;
+  }
+  a {
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  i {
+    font-size: 20px;
+    color: #${font_color};
+  }
+`;
+export const AdvertiseButton = styled.div`
+  width: 110px;
+  height: 32px;
+  box-sizing: border-box;
+  background-color: #303030;
+  &:hover {
+    background-color: #464748;
+  }
+  display: flex;
+  a {
+    text-decoration: none;
+    color: #bebebe;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding-inline: 2px;
+  }
+  border-radius: 36px;
+`;
+
+export const NotificationBadge = styled.div`
+  border-radius: 50%;
+  
+  height: 16px;
+  width: 16px;
+  border: 2px solid #1a1a1b ;
+  background-color: orangered;
+  position: absolute;
+  transform: translate(12px, -8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
   }
 `
