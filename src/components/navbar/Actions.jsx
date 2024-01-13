@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActionsContainer, ActionsButton, AdvertiseButton, NotificationBadge} from './navbar.styled'
+import { ActionsContainer, ActionsButton, AdvertiseButton, NotificationBadge} from './Navbar.styled'
 import Profile from './Profile'
 function Actions() {
   return (
