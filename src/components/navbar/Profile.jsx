@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProfileContainer, UsernameContainer } from './navbar.styled'
+import { ProfileContainer, UsernameContainer } from './Navbar.styled'
 function Profile() {
   return (
     <ProfileContainer>

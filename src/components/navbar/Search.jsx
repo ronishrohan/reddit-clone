@@ -1,5 +1,5 @@
 import React from 'react'
-import { SearchContainer } from './navbar.styled'
+import { SearchContainer } from './Navbar.styled'
 
 function Search() {
   return (
