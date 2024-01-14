@@ -6,3 +6,20 @@ export async function getPosts(){
     
     return data;
 }
+
+export async function createPost(data){
+    fetch(listener + "posts", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+}

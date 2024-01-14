@@ -5,7 +5,7 @@ function Profile() {
     <ProfileContainer>
       <i className="fa-solid fa-circle-user"></i>
       <UsernameContainer>
-        <div>ronish</div>
+        <div>{window.localStorage.getItem("name")}</div>
         <div>
           <i className="fa-solid fa-dharmachakra"></i>
           <div>3.0k karma</div>

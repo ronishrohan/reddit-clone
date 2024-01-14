@@ -4,7 +4,6 @@ import FilterPosts from "./FilterPosts";
 import React, { useEffect, useState } from "react";
 import Post from "./Post";
 import { getPosts } from "../../../../../utils/postUtils";
-
 function Posts() {
   let [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -15,6 +14,7 @@ function Posts() {
 
     fetchPosts();
   }, []);
+  //const { data: posts, isLoading, isError } = useQuery("posts", getPosts);
   console.log(posts);
   return (
     <PostsContainer>

@@ -51,7 +51,7 @@ export const SubmitHeader = styled.div`
   }
 `;
 
-export const SubmitFormHolder = styled.div`
+export const SubmitFormHolder = styled.form`
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -68,7 +68,7 @@ export const SubredditInput = styled.input`
   ${input_styles}
   color: ${text_color_bright};
   background-color: ${card_bg_color};
-  &:hover {
+  &:focus {
     ${input_hover}
   }
 `;
@@ -97,7 +97,7 @@ export const SubmitOption = styled.div`
   align-items: center;
   gap: 10px;
   border-bottom: ${(props) =>
-    props.isActive ? "2px solid white" : "#343536 solid 1px"};
+    props.active === "true" ? "2px solid white" : "#343536 solid 1px"};
   &:first-child {
     border-left: none;
   }
@@ -107,7 +107,7 @@ export const SubmitOption = styled.div`
   &:hover {
     background-color: #242425;
   }
-  color: ${(props) => (props.isActive ? text_color_bright : text_color)};
+  color: ${(props) => (props.active === "true" ? text_color_bright : text_color)};
   i {
     font-size: 20px;
   }
@@ -131,7 +131,7 @@ export const SubmitTitleInput = styled.input`
   ${input_styles}
   color: ${text_color_bright};
   background-color: ${card_bg_color};
-  &:hover {
+  &:focus {
     ${input_hover}
   }
 `;
@@ -149,7 +149,7 @@ export const SubmitTextInput = styled.textarea`
   ${input_styles}
   color: ${text_color_bright};
   background-color: ${card_bg_color};
-  &:hover {
+  &:focus {
     ${input_hover}
   }
 `;

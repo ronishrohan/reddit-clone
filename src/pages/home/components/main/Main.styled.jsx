@@ -11,7 +11,7 @@ import {
 export const MainContainer = styled.div`
   display: flex;
   color: ${text_color};
-  height: 1500px;
+  
   margin-top: calc(49px);
   padding: 20px 24px;
 
