@@ -325,9 +325,9 @@ export const WelcomeCard = styled.div`
   }
   #image-bg-welcome{
     
-    background-image: url("https://media1.tenor.com/m/mJ_Og97j5WwAAAAC/chipi-chapa.gif");
+    
     background-size: cover;
-
+    background-color: olive;
     background-position: 0px;
     height: 50px;
     display: flex;
