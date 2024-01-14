@@ -205,6 +205,7 @@ export const RedditLogoText = (
 export const text_color = "#818384";
 export const border_color = "#343536";
 export const card_bg_color = "#1a1a1b";
+export const text_color_bright = "#d7dadc"
 export const card_styles = `border-radius: 4px;
 background-color: ${card_bg_color};
 border: 1px solid ${border_color};`;

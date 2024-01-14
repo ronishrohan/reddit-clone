@@ -1,13 +1,14 @@
 import React from "react";
 import { LogoContainer } from "./Navbar.styled";
 import { RedditLogo, RedditLogoText } from "../../resources/resources";
+import { Link } from "react-router-dom";
 function Logo() {
   return (
     <LogoContainer>
-      <a href="#">
+      <Link to="/">
       <div>{RedditLogo}</div>
       <div id="reddit-logo-text" >{RedditLogoText}</div>
-      </a>
+      </Link>
       
     </LogoContainer>
   );

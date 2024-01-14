@@ -135,6 +135,10 @@ export const PostContainer = styled.div`
     flex-direction: row;
     overflow: hidden;
     
+    & > div{
+      width: 100%;
+    }
+
     &:hover{
         border-color: #6d6d6d;
     }
@@ -161,7 +165,7 @@ export const PostContainer = styled.div`
       
     }
     #post-container{
-      width: 100%;
+      
       padding: 10px;
       display: flex;
       flex-direction: column;
@@ -327,7 +331,7 @@ export const WelcomeCard = styled.div`
     
     
     background-size: cover;
-    background-color: olive;
+    background-color: orangered;
     background-position: 0px;
     height: 50px;
     display: flex;
@@ -398,6 +402,7 @@ export const PrivacyPolicyContainer = styled.div`
   box-sizing: border-box;
   padding-inline: 15px;
   padding-block: 10px;
+  
   font-size: 12px;
   color: #d7dadc;
   display: flex;
@@ -419,5 +424,30 @@ export const PrivacyPolicyContainer = styled.div`
   }
   #policy-end{
     margin-top: auto;
+  }
+`
+
+export const PostFooter = styled.div`
+  display: flex;
+  width: 100%;
+  height: 30px;
+  margin: 5px;
+  gap: 5px;
+
+`
+export const PostFooterButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 2px;
+  &:hover{
+    background-color: #ffffff1d;
+  }
+  div{
+    font-family: "IBM Plex Sans";
+    font-size: 12px;
+    font-weight: 600;
   }
 `
