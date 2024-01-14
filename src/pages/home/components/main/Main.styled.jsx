@@ -160,6 +160,74 @@ export const PostContainer = styled.div`
       gap: 4px;
       
     }
+    #post-container{
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #post-header{
+      width: 100%;
+      
+      display: flex;
+      gap: 5px;
+      color: #d7dadc;
+      
+      align-items: center;
+      div{
+        font-size: 12px;
+      }
+      #post-subreddit{
+        
+        font-weight: 600;
+      }
+      #post-dot{
+        width: 2px;
+        height: 2px;
+        background-color: #6d6d6d;
+        border-radius: 50%;
+      }
+      #post-by{
+        color: #6d6d6d;
+        font-family: "IBM Plex Sans";
+        font-weight: 600;
+      }
+      
+    }
+    #post-title{
+        font-size: 18px;
+        font-weight: 600;
+        color: #d7dadc;
+        font-family: "IBM Plex Sans";
+    }
+    #post-content-container{
+      height: 70px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      position: relative;
+      display: flex;
+      #post-content{
+        height: 70px;
+        overflow: hidden;
+        font-family: "IBM Plex Sans";
+        font-size: 14px;
+        color: #d7dadc;
+
+      }
+      #post-content-shadow{
+      
+      background: linear-gradient(rgba(255,255,255,0), #1a1a1b);
+      height: 30px;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      
+      
+    }
+      
+    }
+    
     
     
 `

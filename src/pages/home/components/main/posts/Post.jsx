@@ -1,9 +1,11 @@
 import React from "react";
 import { PostContainer, VoteButton } from "../Main.styled";
 
-function Post() {
+function Post({ post, others }) {
+  const date = new Date(post.createdAt);
+  console.log(date);
   return (
-    <PostContainer>
+    <PostContainer {...others}>
       <div id="dark-side">
         <div>
           <VoteButton>
@@ -15,7 +17,21 @@ function Post() {
           </VoteButton>
         </div>
       </div>
-      <div>post goes here hopefully</div>
+      <div id="post-container">
+        <div id="post-header">
+          <i className="fa-solid fa-globe"></i>
+          <div id="post-subreddit">{post.subreddit}</div>
+          <div id="post-dot"></div>
+          <div id="post-by">
+            Posted by {post.createdBy} on {date.toDateString()}
+          </div>
+        </div>
+        <div id="post-title">{post.title}</div>
+        <div id="post-content-container">
+          <div id="post-content" >{post.content}</div>
+          <div id="post-content-shadow"></div>
+        </div>
+      </div>
     </PostContainer>
   );
 }
