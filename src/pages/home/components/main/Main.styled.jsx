@@ -141,7 +141,7 @@ export const PostContainer = styled.div`
     #dark-side{
         background-color: #161617;
         width: 40px;
-        height: 100%;
+        
         display: flex;
         justify-content: center;
         color: #d7dadc;
@@ -202,13 +202,14 @@ export const PostContainer = styled.div`
         font-family: "IBM Plex Sans";
     }
     #post-content-container{
-      height: 70px;
+      
       overflow: hidden;
       text-overflow: ellipsis;
       position: relative;
       display: flex;
       #post-content{
-        height: 70px;
+        padding-bottom: 20px;
+        max-height: 80px;
         overflow: hidden;
         font-family: "IBM Plex Sans";
         font-size: 14px;
@@ -324,8 +325,9 @@ export const WelcomeCard = styled.div`
   }
   #image-bg-welcome{
     
-    background-image: url("https://images.unsplash.com/photo-1570824104453-508955ab713e?q=80&w=1422&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-image: url("https://media1.tenor.com/m/mJ_Og97j5WwAAAAC/chipi-chapa.gif");
     background-size: cover;
+
     background-position: 0px;
     height: 50px;
     display: flex;

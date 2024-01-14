@@ -11,7 +11,7 @@ function Post({ post, others }) {
           <VoteButton>
             <i className="fa-solid fa-up-long"></i>
           </VoteButton>
-          <div>614</div>
+          <div>{post.upvotes}</div>
           <VoteButton>
             <i className="fa-solid fa-down-long"></i>
           </VoteButton>
