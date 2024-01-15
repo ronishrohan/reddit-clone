@@ -195,7 +195,7 @@ export const PostContainer = styled.div`
         font-size: 12px;
       }
       #post-subreddit{
-        
+        font-family: "IBM Plex Sans";
         font-weight: 600;
       }
       #post-dot{
