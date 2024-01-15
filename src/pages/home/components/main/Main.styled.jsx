@@ -56,7 +56,7 @@ export const ActionsCard = styled.div`
 `;
 
 export const PostsContainer = styled.div`
-  min-width: 640px;
+  min-width: 120px;
   max-width: 640px;
   height: 100%;
 `;

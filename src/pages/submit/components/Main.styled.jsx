@@ -18,7 +18,7 @@ export const SubmitContainer = styled.div`
 
   gap: 24px;
   @media (max-width: 640px) {
-    padding: 0%;
+    padding: 10px;
   }
 `;
 
@@ -158,7 +158,8 @@ export const SubmitTextInput = styled.textarea`
   font-family: "IBM Plex Sans";
   display: flex;
   resize: vertical;
-  max-height: 200px;
+  max-height: 180px;
+  
   min-height: 80px;
   font-size: 16px;
   margin-inline: 16px;

@@ -216,6 +216,9 @@ export const AdvertiseButton = styled.div`
     background-color: #464748;
   }
   display: flex;
+  @media (max-width: 560px) {
+    display: none;
+  }
   a {
     text-decoration: none;
     color: #bebebe;
