@@ -334,8 +334,10 @@ export const WelcomeCard = styled.div`
   text-align: center;
   ${card_styles}
   font-size: 16px;
+  font-family: "IBM Plex Sans";
   color: #d7dadc;
   h1{
+    
     font-size: 24px;
   }
   span{

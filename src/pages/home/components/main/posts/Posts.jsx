@@ -11,7 +11,7 @@ function Posts() {
   let postsData = useContext(PostsContext);
   let posts = postsData.posts;
   
-  console.log(posts);
+  
   return (
     <PostsContainer>
       <CreatePost></CreatePost>
