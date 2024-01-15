@@ -64,12 +64,31 @@ export const SubredditInput = styled.input`
   box-sizing: border-box;
   font-family: "IBM Plex Sans";
   padding: 20px;
+  padding-left: 35px;
   border-radius: 4px;
   ${input_styles}
   color: ${text_color_bright};
   background-color: ${card_bg_color};
   &:focus {
     ${input_hover}
+    + span{
+      color: ${text_color_bright};
+      
+    }
+  }
+  & + span{
+    border-radius: 5px;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    font-family: "IBM Plex Sans";
+    color: ${text_color};
+    font-size: 13px;
+    position: absolute;
+    padding: 12px;
+    padding-right: 8px;
+    padding-left: 20px;
   }
 `;
 export const SubmitFormContainer = styled.div`
@@ -145,6 +164,7 @@ export const SubmitTextInput = styled.textarea`
   margin-inline: 16px;
   box-sizing: border-box;
   padding: 20px;
+  padding-block: 10px;
   border-radius: 4px;
   ${input_styles}
   color: ${text_color_bright};
@@ -152,6 +172,25 @@ export const SubmitTextInput = styled.textarea`
   &:focus {
     ${input_hover}
   }
+`;
+export const SubmitLinkInput = styled.input`
+font-family: "IBM Plex Sans";
+display: flex;
+resize: none;
+
+height: 45px;
+font-size: 16px;
+margin-inline: 16px;
+box-sizing: border-box;
+padding: 20px;
+padding-block: 10px;
+border-radius: 4px;
+${input_styles}
+color: ${text_color_bright};
+background-color: ${card_bg_color};
+&:focus {
+  ${input_hover}
+}
 `;
 export const SubmitButton = styled.button`
   cursor: pointer;

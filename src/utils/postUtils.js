@@ -1,7 +1,7 @@
 const listener = "https://red-modern-cygnet.cyclic.app/"
 
-export async function getPosts(){
-    const res = await fetch(listener+"posts");
+export async function getPosts(mode){
+    const res = await fetch(listener+"posts/" + mode);
     const data = await res.json();
     
     return data;

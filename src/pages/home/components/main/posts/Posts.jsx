@@ -4,25 +4,21 @@ import FilterPosts from "./FilterPosts";
 import React, { useEffect, useState } from "react";
 import Post from "./Post";
 import { getPosts } from "../../../../../utils/postUtils";
-function Posts() {
-  let [posts, setPosts] = useState([]);
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const postsData = await getPosts();
-      setPosts(postsData);
-    };
+import { useContext } from "react";
+import { PostsContext } from "../../../../../store/posts-context";
 
-    fetchPosts();
-  }, []);
-  //const { data: posts, isLoading, isError } = useQuery("posts", getPosts);
+function Posts() {
+  let postsData = useContext(PostsContext);
+  let posts = postsData.posts;
+  
   console.log(posts);
   return (
     <PostsContainer>
       <CreatePost></CreatePost>
       <FilterPosts></FilterPosts>
       <PostsHolder>
-        {posts.map((post,index) => {
-          return <Post key={index} post={post} ></Post>
+        {posts.map((post, index) => {
+          return <Post key={index} post={post}></Post>;
         })}
       </PostsHolder>
     </PostsContainer>

@@ -6,6 +6,7 @@ import {
   input_styles,
   input_hover,
   text_color,
+  text_color_bright,
 } from "../../../../resources/resources";
 
 export const MainContainer = styled.div`
@@ -55,7 +56,8 @@ export const ActionsCard = styled.div`
 `;
 
 export const PostsContainer = styled.div`
-  width: 640px;
+  min-width: 640px;
+  max-width: 640px;
   height: 100%;
 `;
 export const DashboardContainer = styled.div`
@@ -103,12 +105,14 @@ export const FilterContainer = styled.div`
 
 `
 export const FilterButton = styled.div`
+    pointer-events: ${({isactive}) => isactive==="true" ? "none" : "auto"};;
     font-family: "Noto Sans";
     cursor: pointer;
     border-radius: 36px;
     height: 32px;
     padding-inline: 10px;
-    color: ${text_color};
+    color: ${({isactive}) => isactive==="true" ? text_color_bright : text_color};
+    background-color: ${({isactive}) => isactive==="true" ? "#353538" : "transparent"};;
     display: flex;
     justify-content: center;
     gap: 8px;
@@ -119,17 +123,16 @@ export const FilterButton = styled.div`
     &:hover{
         background-color: #272729;
     }
-    &:active{
-        background-color: #353538;
-    }
+    
     i{
         font-size: 18px;
     }
+
 `
 export const PostContainer = styled.div`
     display: flex;
     cursor: pointer;
-    width: 100%;
+    
     
     ${card_styles}
     flex-direction: row;
@@ -145,7 +148,7 @@ export const PostContainer = styled.div`
     #dark-side{
         background-color: #161617;
         width: 40px;
-        
+        min-width: 40px;
         display: flex;
         justify-content: center;
         color: #d7dadc;
@@ -212,16 +215,18 @@ export const PostContainer = styled.div`
       position: relative;
       display: flex;
       #post-content{
-        padding-bottom: 20px;
+        
+        margin-bottom: 20px;
         max-height: 80px;
         overflow: hidden;
         font-family: "IBM Plex Sans";
-        font-size: 14px;
-        color: #d7dadc;
+        
+        
+        word-wrap: break-word;
 
       }
       #post-content-shadow{
-      
+      pointer-events: none;
       background: linear-gradient(rgba(255,255,255,0), #1a1a1b);
       height: 30px;
       position: absolute;
@@ -450,4 +455,28 @@ export const PostFooterButton = styled.div`
     font-size: 12px;
     font-weight: 600;
   }
+`
+export const PostLink = styled.a`
+  color: #4aabe7;
+  font-size: 14px;
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+    i{
+      text-decoration: none;
+    }
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  i{
+    line-height: 1px;
+    font-size: 12px;
+  }
+`
+export const PostContent = styled.div`
+  color: #d7dadc;
+  font-size: 14px;
+  
 `
