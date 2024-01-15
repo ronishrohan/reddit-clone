@@ -165,6 +165,8 @@ export const PostContainer = styled.div`
       display: flex;
       flex-direction: column;
       gap: 4px;
+      align-items: center;
+      letter-spacing: 0px;
       
     }
     #post-container{

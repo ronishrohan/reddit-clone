@@ -1,4 +1,5 @@
 import React from "react";
+import { formatDateTime, formatUpvotes } from "../../../../../utils/formatUtils";
 import {
   PostContainer,
   VoteButton,
@@ -9,39 +10,7 @@ import {
 } from "../Main.styled";
 
 function Post({ post, others }) {
-  function getDateFormat() {
-    const date = new Date(post.createdAt);
-    const dateToday = new Date();
-
-    let seconds = (dateToday - date) / 1000;
-    const time = {
-      seconds: Math.floor(seconds),
-      minutes: Math.floor(seconds / 60),
-      hours: Math.floor(seconds / 60 / 60),
-      days: Math.floor(seconds / 60 / 60 / 24),
-      months: Math.floor(seconds / 60 / 60 / 24 / 30),
-      years: Math.floor(seconds / 60 / 60 / 24 / 30 / 12),
-    };
-    if(time.seconds < 60){
-      return Math.abs(time.seconds) + " seconds ago"
-    }
-    else if(time.minutes < 60){
-      return Math.abs(time.minutes) + " minutes ago"
-    }
-    else if(time.hours<24){
-      return Math.abs(time.hours) + " hours ago"
-    }
-    else if(time.days<30){
-      return Math.abs(time.days) + " days ago"
-    }
-    else if(time.months<12){
-      return Math.abs(time.months) + " months ago"
-    }
-    else{
-      return Math.abs(time.years) + " years ago"
-    }
-   
-  }
+  
   return (
     <PostContainer {...others}>
       <div id="dark-side">
@@ -49,7 +18,7 @@ function Post({ post, others }) {
           <VoteButton>
             <i className="fa-solid fa-up-long"></i>
           </VoteButton>
-          <div>{post.upvotes}</div>
+          <div>{formatUpvotes(post.upvotes)}</div>
           <VoteButton>
             <i className="fa-solid fa-down-long"></i>
           </VoteButton>
@@ -62,7 +31,7 @@ function Post({ post, others }) {
             <div id="post-subreddit">{post.subreddit}</div>
             <div id="post-dot"></div>
             <div id="post-by">
-              Posted by {post.createdBy} {getDateFormat()}
+              Posted by {post.createdBy} {formatDateTime(post.createdAt)}
             </div>
           </div>
           <div id="post-title">{post.title}</div>
