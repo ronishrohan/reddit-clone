@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
         
         background-color: #030303;
         margin: 0;
+        
     }
 
     body::-webkit-scrollbar-thumb{

@@ -16,12 +16,13 @@ export const MainContainer = styled.div`
   margin-top: calc(49px);
   padding: 20px 24px;
 
-  display: flex;
+  
   justify-content: center;
 
   gap: 24px;
   @media (max-width: 640px) {
     padding: 0%;
+    padding-bottom: 20px;
   }
 `;
 
@@ -56,8 +57,9 @@ export const ActionsCard = styled.div`
 `;
 
 export const PostsContainer = styled.div`
-  min-width: 120px;
+  min-width: 0px;
   max-width: 640px;
+  
   height: 100%;
 `;
 export const DashboardContainer = styled.div`
@@ -126,6 +128,11 @@ export const FilterButton = styled.div`
     
     i{
         font-size: 18px;
+    }
+    @media (max-width: 500px) {
+      div{
+        display: none;
+      }
     }
 
 `
