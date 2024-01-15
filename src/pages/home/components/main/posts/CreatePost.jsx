@@ -9,7 +9,7 @@ function CreatePost() {
   return (
     <ActionsCard>
         <i className="fa-solid fa-circle-user"></i>
-        <input onClick={() => navigate("/submit")} type="text" placeholder="Create Post" />
+        <input onClick={() => navigate("/submit/?mode=1")} type="text" placeholder="Create Post" />
         <div>
           <CreateCardButton>
             <Link to="/submit/?mode=2">
