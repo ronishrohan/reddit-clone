@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createContext, useState, useEffect, Children } from "react";
 import { getPosts } from "../utils/postUtils";
 const PostsContext = createContext();
