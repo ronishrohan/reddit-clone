@@ -1,4 +1,4 @@
-import { MainContainer } from "../../../subreddit/components/main/Main.styled";
+import { MainContainer } from "./Main.styled";
 import Posts from "./posts/Posts";
 import Dashboard from "./dashboard/Dashboard";
 import React from 'react'

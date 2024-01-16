@@ -1,7 +1,8 @@
-const listener = "https://reddt-backend.onrender.com/";
+const listener = window.location.hostname === "localhost" ? "http://localhost:3000/" : "https://reddt-backend.onrender.com/";
 
-export async function getPosts(mode) {
-  const res = await fetch(listener + "posts/" + mode);
+export async function getPosts(mode,subreddit) {
+  console.log(listener + `posts/${mode}/${subreddit}`)
+  const res = await fetch(listener + `posts/${mode}/${subreddit}`);
   const data = await res.json();
 
   return data;

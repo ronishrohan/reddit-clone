@@ -1,5 +1,5 @@
 import React from 'react'
-import { PremiumContainer, TryNowButton } from '../Main.styled'
+import { PremiumContainer, TryNowButton } from '../../../../subreddit/components/main/Main.styled'
 
 function Premium() {
   return (

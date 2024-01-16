@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActionsCard, CreateCardButton } from '../../../../subreddit/components/main/Main.styled'
+import { ActionsCard, CreateCardButton } from '../Main.styled'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSearchParams } from 'react-router-dom';
 

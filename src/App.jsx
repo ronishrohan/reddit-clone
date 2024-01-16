@@ -2,6 +2,7 @@ import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './pages/home/Home'
 import Submit from './pages/submit/Submit'
+import Subreddit from './pages/subreddit/Subreddit'
 import Root from './Root'
 
 const router = createBrowserRouter([
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
             {
                 path: "/submit",
                 element: <Submit></Submit>
+            },
+            {
+                path: "/r/:subreddit",
+                element: <Subreddit></Subreddit>
             }
         ]
     },

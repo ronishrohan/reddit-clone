@@ -1,5 +1,5 @@
 import React from 'react'
-import { DashboardContainer } from '../Main.styled'
+import { DashboardContainer } from '../../../../subreddit/components/main/Main.styled'
 import Premium from './Premium'
 import Welcome from './Welcome'
 import Policy from './Policy'

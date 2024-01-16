@@ -57,9 +57,17 @@ export const ActionsCard = styled.div`
 `;
 
 export const PostsContainer = styled.div`
-  min-width: 0px;
   max-width: 640px;
-  
+  width: 100%;
+  @media (max-width:640px) {
+    
+    max-width: 640px;
+    min-width: 120px;
+  }
+  @media (max-width: 960px) {
+    max-width: 100%;
+    width: 100%;
+  }
   height: 100%;
 `;
 export const DashboardContainer = styled.div`
@@ -191,6 +199,18 @@ export const PostContainer = styled.div`
       color: #d7dadc;
       
       align-items: center;
+      a{
+        
+        font-size: 12px;
+        color: #d7dadc;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+        i{
+          font-size: 16px;
+        }
+      }
       div{
         font-size: 12px;
       }
@@ -255,20 +275,41 @@ export const PostsHolder = styled.div`
     flex-direction: column;
     gap: 10px;
 `
-
+export const Upvotes = styled.div`
+  font-family: "IBM Plex Sans";
+  color: ${({vote}) => {
+    if(vote===1){
+      return "orangered";
+    }
+    else if(vote===-1){
+      return "#7193ff";
+    }
+    else{
+      return text_color;
+    }
+  }}
+`
 export const VoteButton = styled.div`
   width: 24px;
   height: 24px;
   border-radius: 2px;
+  &:focus{
+    background-color: #2a2a2b;
+  }
   
   i{
-    color: ${text_color};
+    color: ${({vote,type}) => {
+      if(vote===type){
+        return type===1 ? "orangered" : "#7193ff";
+      }
+      else{
+        return text_color;
+      }
+    } };
     
     font-size: 20px;
   }
-  &:hover > i{
-    color: orangered;
-  }
+  
   display: flex;
   justify-content: center;
   align-items: center;

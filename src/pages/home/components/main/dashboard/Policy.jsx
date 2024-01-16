@@ -1,5 +1,5 @@
 import React from "react";
-import { PrivacyPolicyContainer, Divider } from "../Main.styled";
+import { PrivacyPolicyContainer, Divider } from "../../../../subreddit/components/main/Main.styled";
 
 function Policy() {
   return (

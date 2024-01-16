@@ -6,12 +6,16 @@ const PostsContext = createContext();
 const PostsProvider = ({ children }) => {
   let [fetchID, setFetchID] = useState(1);
   let [filterMode, setFilterMode] = useState("3");
+  let [subreddit, setSubreddit] = useState("")
   function updateFetchID(){
     
     setFetchID((prevID) => {
         const newID = prevID+1;
         return newID;
     })
+  }
+  function updateSubreddit(sub){
+    setSubreddit(sub)
   }
   function updateFilterMode(mode){
     setFilterMode(mode);
@@ -20,15 +24,15 @@ const PostsProvider = ({ children }) => {
   let [posts, setPosts] = useState([]);
   useEffect(() => {
     const fetchPosts = async () => {
-      const postsData = await getPosts(filterMode);
+      const postsData = await getPosts(filterMode, subreddit);
       setPosts(postsData);
     };
 
     fetchPosts();
-  }, [fetchID, filterMode]);
+  }, [fetchID, filterMode, subreddit]);
 
   return (
-    <PostsContext.Provider value={{posts, updateFetchID, updateFilterMode}}>{children}</PostsContext.Provider>
+    <PostsContext.Provider value={{posts, updateFetchID, updateFilterMode, updateSubreddit}}>{children}</PostsContext.Provider>
   );
 };
 
