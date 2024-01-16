@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
+import SubmitImage from "./SubmitImage";
 import {
   SubmitOption,
   OptionsContainer,
@@ -8,7 +9,7 @@ import {
   SubmitTitleInput,
   SubmitTextInput,
   SubmitButton,
-  SubmitLinkInput
+  SubmitLinkInput,
 } from "../Main.styled";
 import { createPost } from "../../../../utils/postUtils";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -16,6 +17,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { PostsContext } from "../../../../store/posts-context";
 
 function SubmitForm() {
+  let [imgUrl, setUrl] = useState("");
   let postsData = useContext(PostsContext);
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -28,24 +30,30 @@ function SubmitForm() {
   let subreddit = useRef("");
   let title = useRef("");
   let content = useRef("");
-
+  function handleUrl(url) {
+    setUrl(url);
+  }
   async function handleCreatePost(e) {
-    let slug = title.current.value.replace(/ /g, "-");
-    e.preventDefault(true);
-    console.log(title.current.value);
-    let data = {
-      title: title.current.value,
-      content: content.current.value,
-      subreddit: "r/" + subreddit.current.value,
-      createdBy: window.localStorage.getItem("name"),
-      slug: slug,
-      post_type: mode
-    };
-    navigate("/");
-    await createPost(data);
-    setTimeout(() => {
-      postsData.updateFetchID();
-    }, 2000);
+    e.preventDefault();
+    if (e.nativeEvent.submitter.name === "submit-button") {
+      let slug = title.current.value.replace(/ /g, "-");
+      e.preventDefault(true);
+      console.log(title.current.value);
+      let data = {
+        title: title.current.value,
+        content: mode === "2" ? "" : content.current.value,
+        subreddit: "r/" + subreddit.current.value,
+        createdBy: window.localStorage.getItem("name"),
+        slug: slug,
+        post_type: mode,
+        image_link: imgUrl,
+      };
+      navigate("/");
+      await createPost(data);
+      setTimeout(() => {
+        postsData.updateFetchID();
+      }, 2000);
+    }
   }
   useEffect(() => {
     setSearchParams("mode=" + mode);
@@ -99,6 +107,7 @@ function SubmitForm() {
             required
           ></SubmitTextInput>
         )}
+        {mode === "2" && <SubmitImage updateUrl={handleUrl}></SubmitImage>}
         {mode === "3" && (
           <SubmitLinkInput
             ref={content}
@@ -107,7 +116,7 @@ function SubmitForm() {
             required
           ></SubmitLinkInput>
         )}
-        <SubmitButton>Post</SubmitButton>
+        <SubmitButton name="submit-button">Post</SubmitButton>
       </SubmitFormContainer>
     </SubmitFormHolder>
   );

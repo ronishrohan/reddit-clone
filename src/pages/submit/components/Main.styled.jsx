@@ -71,15 +71,14 @@ export const SubredditInput = styled.input`
   background-color: ${card_bg_color};
   &:focus {
     ${input_hover}
-    + span{
+    + span {
       color: ${text_color_bright};
-      
     }
   }
-  & + span{
+  & + span {
     border-radius: 5px;
     display: flex;
-    
+
     justify-content: center;
     align-items: center;
     font-family: "IBM Plex Sans";
@@ -126,7 +125,8 @@ export const SubmitOption = styled.div`
   &:hover {
     background-color: #242425;
   }
-  color: ${(props) => (props.active === "true" ? text_color_bright : text_color)};
+  color: ${(props) =>
+    props.active === "true" ? text_color_bright : text_color};
   i {
     font-size: 20px;
   }
@@ -159,7 +159,7 @@ export const SubmitTextInput = styled.textarea`
   display: flex;
   resize: vertical;
   max-height: 180px;
-  
+
   min-height: 80px;
   font-size: 16px;
   margin-inline: 16px;
@@ -175,23 +175,23 @@ export const SubmitTextInput = styled.textarea`
   }
 `;
 export const SubmitLinkInput = styled.input`
-font-family: "IBM Plex Sans";
-display: flex;
-resize: none;
+  font-family: "IBM Plex Sans";
+  display: flex;
+  resize: none;
 
-height: 45px;
-font-size: 16px;
-margin-inline: 16px;
-box-sizing: border-box;
-padding: 20px;
-padding-block: 10px;
-border-radius: 4px;
-${input_styles}
-color: ${text_color_bright};
-background-color: ${card_bg_color};
-&:focus {
-  ${input_hover}
-}
+  height: 45px;
+  font-size: 16px;
+  margin-inline: 16px;
+  box-sizing: border-box;
+  padding: 20px;
+  padding-block: 10px;
+  border-radius: 4px;
+  ${input_styles}
+  color: ${text_color_bright};
+  background-color: ${card_bg_color};
+  &:focus {
+    ${input_hover}
+  }
 `;
 export const SubmitButton = styled.button`
   cursor: pointer;
@@ -206,6 +206,51 @@ export const SubmitButton = styled.button`
   outline: none;
   margin: 16px;
   margin-left: auto;
+  font-family: "Noto Sans";
+  font-weight: 800;
+`;
+
+export const SubmitImageThumbnail = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    margin-inline: auto;
+    width: 300px;
+    border-radius: 5px;
+  }
+  
+  div::before {
+    content: "image uploaded";
+    font-family: "IBM Plex Sans";
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    position: absolute;
+    width: 300px;
+    height: 20px;
+    text-align: center;
+    background-color: #000000cc;
+    color: ${text_color_bright};
+  }
+`;
+export const SubmitImageButton = styled.button`
+  width: 120px;
+  height: 50px;
+  text-align: center;
+  margin-inline: auto;
+  cursor: pointer;
+  background-color: #d8dbdd;
+  &:hover {
+    background-color: #c8cbcd;
+  }
+  border-radius: 36px;
+  border: none;
+
   font-family: "Noto Sans";
   font-weight: 800;
 `;

@@ -12,6 +12,7 @@ import {
   PostLink,
   PostContent,
   Upvotes,
+  PostImage
 } from "../../Main.styled";
 import { updateVotes } from "../../../../../utils/postUtils";
 import { Link } from "react-router-dom";
@@ -74,6 +75,11 @@ function Post({ post, others }) {
           <div id="post-content-container">
             {post.post_type == 1 && (
               <PostContent id="post-content">{post.content}</PostContent>
+            )}
+            {post.post_type ==2 && (
+              <PostImage>
+                <img src={post.image_link} alt="" />
+              </PostImage>
             )}
             {post.post_type == 3 && (
               <PostLink href={post.content} id="post-content">

@@ -534,3 +534,15 @@ export const PostContent = styled.div`
   font-size: 14px;
   
 `
+export const PostImage = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img{
+    width: 90%;
+  }
+  + #post-content-shadow{
+    display: none;
+  }
+`
