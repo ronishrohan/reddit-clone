@@ -3,6 +3,7 @@ import styled from "styled-components";
 const font_color = "d7dadc";
 
 export const NavbarContainer = styled.div`
+z-index: 2;
   color: #${font_color};
   font-family: IBM Plex Sans, sans-serif;
   position: fixed;
