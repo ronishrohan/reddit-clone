@@ -1,5 +1,5 @@
 import { MainContainer } from "./Main.styled";
-import Posts from "./posts/Posts";
+import Posts from "../../../home/components/main/posts/Posts";
 import Dashboard from "./dashboard/Dashboard";
 import React from 'react'
 

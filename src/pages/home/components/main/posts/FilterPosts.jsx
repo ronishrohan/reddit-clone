@@ -4,7 +4,7 @@ import {
   CreateCardButton,
   FilterContainer,
   FilterButton,
-} from "../../../../subreddit/components/main/Main.styled";
+} from "../../Main.styled";
 import { Link } from "react-router-dom";
 import { PostsContext } from "../../../../../store/posts-context";
 

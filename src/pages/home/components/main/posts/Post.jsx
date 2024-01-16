@@ -12,7 +12,7 @@ import {
   PostLink,
   PostContent,
   Upvotes,
-} from "../Main.styled";
+} from "../../Main.styled";
 import { updateVotes } from "../../../../../utils/postUtils";
 import { Link } from "react-router-dom";
 
@@ -63,7 +63,7 @@ function Post({ post, others }) {
       <div>
         <div id="post-container">
           <div id="post-header">
-            <Link><i className="fa-solid fa-globe"></i></Link>
+            <Link to={`/${post.subreddit}`} ><i className="fa-solid fa-globe"></i></Link>
             <Link to={`/${post.subreddit}`} id="post-subreddit">{post.subreddit}</Link>
             <div id="post-dot"></div>
             <div id="post-by">

@@ -208,6 +208,7 @@ export const PostContainer = styled.div`
           text-decoration: underline;
         }
         i{
+          padding-top: 3px;
           font-size: 16px;
         }
       }

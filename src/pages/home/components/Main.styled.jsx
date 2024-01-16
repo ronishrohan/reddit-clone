@@ -7,7 +7,7 @@ import {
   input_hover,
   text_color,
   text_color_bright,
-} from "../../../../resources/resources";
+} from "../../../resources/resources";
 
 export const MainContainer = styled.div`
   display: flex;
@@ -208,7 +208,9 @@ export const PostContainer = styled.div`
           text-decoration: underline;
         }
         i{
+          padding-top: 3px;
           font-size: 16px;
+          
         }
       }
       div{

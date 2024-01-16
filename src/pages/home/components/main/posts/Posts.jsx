@@ -1,8 +1,8 @@
-import { PostsContainer, ActionsCard, PostsHolder } from "../../../../subreddit/components/main/Main.styled";
+import { PostsContainer, ActionsCard, PostsHolder } from "../../Main.styled";
 import CreatePost from "./CreatePost";
 import FilterPosts from "./FilterPosts";
 import React, { useEffect, useState } from "react";
-import Post from "../../../../subreddit/components/main/posts/Post";
+import Post from "./Post";
 import { getPosts } from "../../../../../utils/postUtils";
 import { useContext } from "react";
 import { PostsContext } from "../../../../../store/posts-context";
