@@ -34,7 +34,7 @@ function Actions() {
         </Link>
       </ActionsButton>
       <AdvertiseButton>
-        <a href="#">
+        <a href="https://ads.reddit.com/?utm_source=d2x_consumer&utm_name=top_nav_cta">
           <i className="fa-solid fa-bullhorn"></i>
           <div>Advertise</div>
         </a>

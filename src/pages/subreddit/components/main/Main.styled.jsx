@@ -13,7 +13,7 @@ export const MainContainer = styled.div`
   display: flex;
   color: ${text_color};
   
-  margin-top: calc(49px);
+  
   padding: 20px 24px;
 
   
@@ -481,6 +481,7 @@ export const PrivacyPolicyContainer = styled.div`
     
   }
   #policy-end{
+    font-family: "Noto Sans";
     margin-top: auto;
   }
 `
@@ -532,4 +533,27 @@ export const PostContent = styled.div`
   color: #d7dadc;
   font-size: 14px;
   
+`
+export const SubredditContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  background-color: #1a1a1b;
+  display: flex;
+`
+export const SubredditName = styled.div`
+  margin-top: auto;
+  font-family: "IBM Plex Sans";
+  color: #d7dadc;
+  font-weight: 800;
+  font-size: 42px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  i{
+    font-size: 56px;
+    translate: 0 4px;
+  }
+
 `

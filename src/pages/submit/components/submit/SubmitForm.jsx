@@ -19,9 +19,10 @@ import { PostsContext } from "../../../../store/posts-context";
 function SubmitForm() {
   let [imgUrl, setUrl] = useState("");
   let postsData = useContext(PostsContext);
-
+  
   const [searchParams, setSearchParams] = useSearchParams();
-
+  let subname = searchParams.get("subreddit")
+  const [inputValue, setInputValue] = useState(subname);
   let navigate = useNavigate();
   let [mode, setMode] = useState(searchParams.get("mode"));
   if (!mode) {
@@ -33,6 +34,9 @@ function SubmitForm() {
   function handleUrl(url) {
     setUrl(url);
   }
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
   async function handleCreatePost(e) {
     e.preventDefault();
     if (e.nativeEvent.submitter.name === "submit-button") {
@@ -52,12 +56,10 @@ function SubmitForm() {
       await createPost(data);
       setTimeout(() => {
         postsData.updateFetchID();
-      }, 2000);
+      }, 500);
     }
   }
-  useEffect(() => {
-    setSearchParams("mode=" + mode);
-  }, [mode]);
+  
   return (
     <SubmitFormHolder
       onSubmit={(e) => {
@@ -65,6 +67,8 @@ function SubmitForm() {
       }}
     >
       <SubredditInput
+        onChange={(e)=> handleInputChange(e)}
+        value={inputValue}
         ref={subreddit}
         placeholder="Enter community name here"
         required

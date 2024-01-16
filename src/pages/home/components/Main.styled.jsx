@@ -482,6 +482,7 @@ export const PrivacyPolicyContainer = styled.div`
     
   }
   #policy-end{
+    font-family: "Noto Sans";
     margin-top: auto;
   }
 `
@@ -540,7 +541,11 @@ export const PostImage = styled.div`
   justify-content: center;
   align-items: center;
   img{
-    width: 90%;
+    height: 400px;
+    
+    max-width: 90%;
+    
+    
   }
   + #post-content-shadow{
     display: none;

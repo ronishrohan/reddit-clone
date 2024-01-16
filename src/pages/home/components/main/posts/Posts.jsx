@@ -7,14 +7,14 @@ import { getPosts } from "../../../../../utils/postUtils";
 import { useContext } from "react";
 import { PostsContext } from "../../../../../store/posts-context";
 
-function Posts() {
+function Posts({subreddit}) {
   let postsData = useContext(PostsContext);
   let posts = postsData.posts;
   
   
   return (
     <PostsContainer>
-      <CreatePost></CreatePost>
+      <CreatePost sub={subreddit} ></CreatePost>
       <FilterPosts></FilterPosts>
       <PostsHolder>
         {posts.map((post, index) => {

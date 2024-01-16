@@ -1,17 +1,24 @@
-import { MainContainer } from "./Main.styled";
+import { MainContainer, SubredditContainer } from "./Main.styled";
 import Posts from "../../../home/components/main/posts/Posts";
 import Dashboard from "./dashboard/Dashboard";
-import React from 'react'
-
+import React from "react";
+import SubreditHeader from "./SubreditHeader";
+import {useParams} from "react-router-dom";
 
 function Main() {
+  const params = useParams();
+  const sub = params.subreddit;
   return (
-    <MainContainer>
-        <Posts></Posts>
+    <>
+      <SubredditContainer>
+        <SubreditHeader></SubreditHeader>
+      </SubredditContainer>
+      <MainContainer>
+        <Posts subreddit={sub} ></Posts>
         <Dashboard></Dashboard>
-        
-    </MainContainer>
-  )
+      </MainContainer>
+    </>
+  );
 }
 
-export default Main
+export default Main;

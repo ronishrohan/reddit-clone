@@ -1,5 +1,5 @@
 import React from 'react'
-import { PremiumContainer, TryNowButton } from '../../../../subreddit/components/main/Main.styled'
+import { PremiumContainer, TryNowButton } from '../../Main.styled'
 
 function Premium() {
   return (
@@ -12,7 +12,7 @@ function Premium() {
             </div>
             
         </div>
-        <TryNowButton>Try Now</TryNowButton>
+        <TryNowButton onClick={() => {window.location = "https://www.reddit.com/premium"}} >Try Now</TryNowButton>
     </PremiumContainer>
   )
 }

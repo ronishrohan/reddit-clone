@@ -1,5 +1,5 @@
 import React from 'react'
-import { WelcomeCard, Divider, CreateCommunityButton, CreatePostButton } from '../../../../subreddit/components/main/Main.styled'
+import { WelcomeCard, Divider, CreateCommunityButton, CreatePostButton } from '../../Main.styled'
 import { Link } from 'react-router-dom'
 function Welcome() {
   return (

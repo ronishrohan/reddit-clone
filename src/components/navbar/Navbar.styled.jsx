@@ -59,25 +59,24 @@ export const CommunitiesContainer = styled.div`
     -webkit-font-smoothing: antialiased;
     font-weight: 200;
     font-size: 14px;
-  }
-  &:hover {
-    border-color: #343536;
-  }
-  i {
-    margin-inline: 10px;
-  }
-  i:last-child {
-    font-size: 14px;
-    
-    margin-right: 14px;
-    font-weight: 600;
-  }
-  div{
     width: 190px;
     @media (max-width: 995px) {
       display: none;
     }
   }
+  &:hover {
+    border-color: #343536;
+  }
+  i {
+    padding-inline: 10px;
+  }
+  i:last-child {
+    
+    box-sizing: border-box;
+    
+    font-weight: 600;
+  }
+  
 `;
 
 export const ProfileContainer = styled.div`
@@ -260,4 +259,48 @@ export const NotificationBadge = styled.div`
     align-items: center;
 
   }
+`
+export const CommunitiesDropdown = styled.div`
+  box-sizing: border-box;
+  position: absolute;
+  background-color: #1a1a1b;
+  border: 1px solid #343536;
+  border-top: none;
+  translate: -1px;
+  width: 266.5px;
+  height: 100px;
+  bottom: -90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 40px;
+    border-radius: 36px;
+    font-family: IBM Plex Sans;
+    font-weight: 100;
+    outline: none;
+    border: none;
+    background: #272729;
+    color: #cbdadc;
+    font-family: "IBM Plex Sans";
+    padding-inline: 20px;
+    padding-left: 40px;
+    
+  }
+  input:hover, :focus {
+    background-color: transparent;
+    border: 1px solid #cbdadc;
+  }
+  div{
+    position: absolute;
+    left: 48px;
+    font-family: "IBM Plex Sans";
+    font-size: 14px;
+  }
+  
+  
 `
