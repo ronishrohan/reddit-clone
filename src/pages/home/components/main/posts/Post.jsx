@@ -12,22 +12,27 @@ import {
   PostLink,
   PostContent,
   Upvotes,
-  PostImage
+  PostImage,
+  ImageContainer,
 } from "../../Main.styled";
 import { updateVotes } from "../../../../../utils/postUtils";
 import { Link } from "react-router-dom";
 
 function Post({ post, others }) {
+  let isVideo = false;
+  if (post.image_link) {
+    isVideo = post.image_link.slice(-3) === "mp4";
+  
+  }
   let [vote, setVote] = useState(0);
   const voteList = [post.upvotes - 1, post.upvotes, post.upvotes + 1];
   function handleVote(type) {
     let voteDet = type;
-    if(type!=0){
-      voteDet=type;
-    }
-    else{
-      voteDet = post.upvotes - voteList[vote+1]
-      console.log(voteDet)
+    if (type != 0) {
+      voteDet = type;
+    } else {
+      voteDet = post.upvotes - voteList[vote + 1];
+      console.log(voteDet);
     }
     let data = {
       type: Number(voteDet),
@@ -37,7 +42,7 @@ function Post({ post, others }) {
     };
 
     updateVotes(data);
-    
+
     setVote(type);
   }
   return (
@@ -51,7 +56,7 @@ function Post({ post, others }) {
           >
             <i className="fa-solid fa-up-long"></i>
           </VoteButton>
-          <Upvotes vote={vote}>{formatUpvotes(voteList[vote+1])}</Upvotes>
+          <Upvotes vote={vote}>{formatUpvotes(voteList[vote + 1])}</Upvotes>
           <VoteButton
             onClick={() => (vote === -1 ? handleVote(0) : handleVote(-1))}
             vote={vote}
@@ -64,8 +69,12 @@ function Post({ post, others }) {
       <div>
         <div id="post-container">
           <div id="post-header">
-            <Link to={`/${post.subreddit}`} ><i className="fa-solid fa-globe"></i></Link>
-            <Link to={`/${post.subreddit}`} id="post-subreddit">{post.subreddit}</Link>
+            <Link to={`/${post.subreddit}`}>
+              <i className="fa-solid fa-globe"></i>
+            </Link>
+            <Link to={`/${post.subreddit}`} id="post-subreddit">
+              {post.subreddit}
+            </Link>
             <div id="post-dot"></div>
             <div id="post-by">
               Posted by {post.createdBy} {formatDateTime(post.createdAt)}
@@ -76,9 +85,11 @@ function Post({ post, others }) {
             {post.post_type == 1 && (
               <PostContent id="post-content">{post.content}</PostContent>
             )}
-            {post.post_type ==2 && (
+            {post.post_type == 2 && (
               <PostImage>
-                <img src={post.image_link} alt="" />
+                <ImageContainer>
+                  {isVideo ? <video controls src={post.image_link} alt="" /> : <img src={post.image_link} alt="" />}
+                </ImageContainer>
               </PostImage>
             )}
             {post.post_type == 3 && (

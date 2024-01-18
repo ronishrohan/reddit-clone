@@ -11,7 +11,8 @@ import { PostsContext } from "../../../../../store/posts-context";
 function FilterPosts() {
   let postsData = useContext(PostsContext);
   let updateFilterMode = postsData.updateFilterMode;
-  let [mode, setMode] = useState("3");
+  let updateSkip = postsData.updateSkip;
+  let [mode, setMode] = useState("1");
   function isSelected(number){
     
     return (number === mode).toString();

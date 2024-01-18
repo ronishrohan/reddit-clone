@@ -88,7 +88,7 @@ function SubmitForm() {
             onClick={() => setMode("2")}
           >
             <i className="fa-regular fa-image"></i>
-            <div>Image</div>
+            <div>Media</div>
           </SubmitOption>
           <SubmitOption
             active={(mode === "3").toString()}

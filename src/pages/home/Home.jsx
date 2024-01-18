@@ -4,10 +4,13 @@ import { RootContainer } from '../../GlobalStyles'
 import React from 'react'
 import { useContext } from 'react'
 import { PostsContext } from '../../store/posts-context'
+import { useEffect } from 'react'
 
 function Home() {
   let postsData = useContext(PostsContext);
-  postsData.updateSubreddit("");
+  useEffect(() => {
+    postsData.updateSubreddit("");
+  }, [])
   return<>
     <RootContainer>
       <Main></Main>

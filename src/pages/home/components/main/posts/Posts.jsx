@@ -7,20 +7,27 @@ import { getPosts } from "../../../../../utils/postUtils";
 import { useContext } from "react";
 import { PostsContext } from "../../../../../store/posts-context";
 
-function Posts({subreddit}) {
+function Posts({ subreddit }) {
   let postsData = useContext(PostsContext);
   let posts = postsData.posts;
-  
-  
+  let updateSkip = postsData.updateSkip;
+
+
+  console.log(posts);
+
   return (
     <PostsContainer>
-      <CreatePost sub={subreddit} ></CreatePost>
+      <CreatePost sub={subreddit}></CreatePost>
       <FilterPosts></FilterPosts>
-      <PostsHolder>
-        {posts.map((post, index) => {
-          return <Post key={index} post={post}></Post>;
-        })}
-      </PostsHolder>
+      {posts.map((posts_data, outerIndex) => {
+        return (
+          <PostsHolder key={outerIndex}>
+            {posts_data.map((post, index) => {
+              return <Post key={index} post={post}></Post>;
+            })}
+          </PostsHolder>
+        );
+      })}
     </PostsContainer>
   );
 }
