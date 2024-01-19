@@ -22,7 +22,7 @@ const router = createBrowserRouter([
                 path: "r/:subreddit",
                 children: [
                     {
-                        path: "/",
+                        path: "",
                         element: <Subreddit></Subreddit>,
                     },
                     {
