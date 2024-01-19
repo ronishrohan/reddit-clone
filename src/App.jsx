@@ -15,11 +15,11 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: "/submit",
+                path: "submit",
                 element: <Submit></Submit>
             },
             {
-                path: "/r/:subreddit",
+                path: "r/:subreddit",
                 children: [
                     {
                         path: "/",
