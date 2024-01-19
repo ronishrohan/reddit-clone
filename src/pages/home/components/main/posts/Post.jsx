@@ -16,9 +16,10 @@ import {
   ImageContainer,
 } from "../../Main.styled";
 import { updateVotes } from "../../../../../utils/postUtils";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Post({ post, others }) {
+  const navigate = useNavigate();
   let isVideo = false;
   if (post.image_link) {
     isVideo = post.image_link.slice(-3) === "mp4";
@@ -46,7 +47,7 @@ function Post({ post, others }) {
     setVote(type);
   }
   return (
-    <PostContainer {...others}>
+    <PostContainer {...others}  >
       <div id="dark-side">
         <div>
           <VoteButton
@@ -80,7 +81,7 @@ function Post({ post, others }) {
               Posted by {post.createdBy} {formatDateTime(post.createdAt)}
             </div>
           </div>
-          <div id="post-title">{post.title}</div>
+          <div id="post-title"><Link to={`/${post.subreddit}/${post.createdBy}/${post.slug}`} >{post.title}</Link></div>
           <div id="post-content-container">
             {post.post_type == 1 && (
               <PostContent id="post-content">{post.content}</PostContent>

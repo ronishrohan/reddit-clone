@@ -4,7 +4,7 @@ import Home from './pages/home/Home'
 import Submit from './pages/submit/Submit'
 import Subreddit from './pages/subreddit/Subreddit'
 import Root from './Root'
-
+import PostPage from './pages/postpage/PostPage'
 const router = createBrowserRouter([
     {
         path: "/",
@@ -20,7 +20,16 @@ const router = createBrowserRouter([
             },
             {
                 path: "/r/:subreddit",
-                element: <Subreddit></Subreddit>
+                children: [
+                    {
+                        path: "/",
+                        element: <Subreddit></Subreddit>,
+                    },
+                    {
+                        path: ":username/:postslug",
+                        element: <PostPage></PostPage>
+                    }
+                ]
             }
         ]
     },

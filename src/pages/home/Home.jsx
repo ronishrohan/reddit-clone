@@ -8,6 +8,8 @@ import { useEffect } from 'react'
 
 function Home() {
   let postsData = useContext(PostsContext);
+  postsData.updateSubreddit("");
+  
   useEffect(() => {
     postsData.updateSubreddit("");
   }, [])

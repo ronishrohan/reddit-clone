@@ -19,9 +19,9 @@ function Posts({ subreddit }) {
     <PostsContainer>
       <CreatePost sub={subreddit}></CreatePost>
       <FilterPosts></FilterPosts>
-      {posts.map((posts_data, outerIndex) => {
-        return (
-          <PostsHolder key={outerIndex}>
+      {posts.length !== 1 && posts.map((posts_data, outerIndex) => {
+        return (posts_data.length !==0 && 
+          <PostsHolder key={outerIndex} >
             {posts_data.map((post, index) => {
               return <Post key={index} post={post}></Post>;
             })}

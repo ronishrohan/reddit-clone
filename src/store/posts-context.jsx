@@ -15,11 +15,12 @@ const PostsProvider = ({ children }) => {
       let scrollY = window.scrollY;
       let height = document.documentElement.scrollHeight;
       let scrollHeight = window.innerHeight;
-      console.log(height)
-      if(scrollY+scrollHeight > height*0.85){
+      console.log(scrollY+scrollHeight, height*0.85)
+      if(scrollY+scrollHeight > height*0.5){
+        
         setScrolled(true);
       }
-      console.log(scrollY+scrollHeight, height);
+      
     }
     window.addEventListener("scroll", handleScrollChange);
     
@@ -48,21 +49,25 @@ const PostsProvider = ({ children }) => {
     console.log("change mode to ", mode);
   }
   function updateSkip() {
-    setSkip((prev) => prev + 4);
+    setSkip((prev) => prev + 3);
+    console.log(skip)
   }
-  
+  const fetchPosts = async () => {
+    const postsData = await getPosts(filterMode, subreddit, skip);
+    console.log(filterMode, subreddit, skip)
+    setPosts((prev) => [...prev, postsData]);
+    setScrolled(false)
+    
+  };
   useEffect(() => {
-    const fetchPosts = async () => {
-      const postsData = await getPosts(filterMode, subreddit, skip);
-      setPosts((prev) => [...prev, postsData]);
-      setScrolled(false)
-    };
+    
 
     fetchPosts();
   }, [fetchID, filterMode, subreddit, skip]);
 
   useEffect(() => {
     setPosts([[]]);
+    setSkip(0)
   }, [filterMode, fetchID, subreddit]);
 
   return (
