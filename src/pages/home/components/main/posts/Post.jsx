@@ -23,7 +23,6 @@ function Post({ post, others }) {
   let isVideo = false;
   if (post.image_link) {
     isVideo = post.image_link.slice(-3) === "mp4";
-  
   }
   let [vote, setVote] = useState(0);
   const voteList = [post.upvotes - 1, post.upvotes, post.upvotes + 1];
@@ -47,7 +46,7 @@ function Post({ post, others }) {
     setVote(type);
   }
   return (
-    <PostContainer {...others}  >
+    <PostContainer {...others}>
       <div id="dark-side">
         <div>
           <VoteButton
@@ -81,7 +80,11 @@ function Post({ post, others }) {
               Posted by {post.createdBy} {formatDateTime(post.createdAt)}
             </div>
           </div>
-          <div id="post-title"><Link to={`/${post.subreddit}/${post.createdBy}/${post.slug}`} >{post.title}</Link></div>
+          <div id="post-title">
+            <Link to={`/${post.subreddit}/${post.createdBy}/${post.slug}`}>
+              {post.title}
+            </Link>
+          </div>
           <div id="post-content-container">
             {post.post_type == 1 && (
               <PostContent id="post-content">{post.content}</PostContent>
@@ -89,7 +92,21 @@ function Post({ post, others }) {
             {post.post_type == 2 && (
               <PostImage>
                 <ImageContainer>
-                  {isVideo ? <video controls src={post.image_link} alt="" /> : <img src={post.image_link} alt="" />}
+                  {isVideo ? (
+                    <video controls src={post.image_link} alt="" />
+                  ) : (
+                    <img
+                      onClick={(e) => {
+                        if (e.target === e.currentTarget) {
+                          navigate(
+                            `/${post.subreddit}/${post.createdBy}/${post.slug}`
+                          );
+                        }
+                      }}
+                      src={post.image_link}
+                      alt=""
+                    />
+                  )}
                 </ImageContainer>
               </PostImage>
             )}

@@ -40,3 +40,8 @@ export async function updateVotes(data) {
 
     .catch((error) => console.log(error));
 }
+export async function getPost(subreddit,user,slug){
+  const res = await fetch(listener + `posts/get/${subreddit}/${user}/${slug}`);
+  const data = await res.json();
+  return data;
+}
