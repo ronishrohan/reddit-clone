@@ -136,7 +136,7 @@ function Post({ post, others }) {
           </PostFooterButton>
           <PostFooterButton onClick={() => {
             
-            navigator.clipboard.writeText(`${window.location.host}/${post.subreddit}/${post.createdBy}/${post.slug}`)
+            navigator.clipboard.writeText(`${window.location.host}/#/${post.subreddit}/${post.createdBy}/${post.slug}`)
             popupData.showContent("copied link to clipboard");
             
           }} >
