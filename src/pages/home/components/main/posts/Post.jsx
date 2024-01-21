@@ -17,8 +17,10 @@ import {
 } from "../../Main.styled";
 import { updateVotes } from "../../../../../utils/postUtils";
 import { Link, useNavigate } from "react-router-dom";
-
+import { useContext } from "react";
+import { PopupContext } from "../../../../../components/outer/popup-context";
 function Post({ post, others }) {
+  let popupData = useContext(PopupContext);
   const navigate = useNavigate();
   let isVideo = false;
   if (post.image_link) {
@@ -48,7 +50,7 @@ function Post({ post, others }) {
   return (
     <PostContainer {...others}>
       <div id="dark-side">
-        <div>
+        <div >
           <VoteButton
             onClick={() => (vote === 1 ? handleVote(0) : handleVote(1))}
             vote={vote}
@@ -66,8 +68,16 @@ function Post({ post, others }) {
           </VoteButton>
         </div>
       </div>
-      <div>
-        <div id="post-container">
+      <div onClick={(e) => {
+            console.log(e.target, e.currentTarget)
+            if(e.target.id ==="post-content-container" || e.target.id === "post-header" || e.target.id === "post-title" || e.target.id === "post-content"){
+              navigate(`/${post.subreddit}/${post.createdBy}/${post.slug}`);
+            }
+          }}  >
+        <div
+          id="post-container"
+          
+        >
           <div id="post-header">
             <Link to={`/${post.subreddit}`}>
               <i className="fa-solid fa-globe"></i>
@@ -124,7 +134,12 @@ function Post({ post, others }) {
             <i className="fa-regular fa-message"></i>
             <div>{post.commentsLength} Comments</div>
           </PostFooterButton>
-          <PostFooterButton>
+          <PostFooterButton onClick={() => {
+            
+            navigator.clipboard.writeText(`${window.location.host}/${post.subreddit}/${post.createdBy}/${post.slug}`)
+            popupData.showContent("copied link to clipboard");
+            
+          }} >
             <i className="fa-solid fa-share"></i>
             <div>Share</div>
           </PostFooterButton>

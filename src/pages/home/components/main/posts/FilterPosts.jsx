@@ -12,7 +12,7 @@ function FilterPosts() {
   let postsData = useContext(PostsContext);
   let updateFilterMode = postsData.updateFilterMode;
   let updateSkip = postsData.updateSkip;
-  let [mode, setMode] = useState("1");
+  let [mode, setMode] = useState(window.localStorage.getItem("filter") ? window.localStorage.getItem("filter") : "1");
   function isSelected(number){
     
     return (number === mode).toString();
@@ -20,6 +20,7 @@ function FilterPosts() {
   function handleClicked(number){
     setMode(number);
     updateFilterMode(number);
+    
   }
   return (
     <ActionsCard>

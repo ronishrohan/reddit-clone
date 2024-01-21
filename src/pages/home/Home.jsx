@@ -7,6 +7,7 @@ import { PostsContext } from '../../store/posts-context'
 import { useEffect } from 'react'
 
 function Home() {
+  console.log("home")
   let postsData = useContext(PostsContext);
   postsData.updateSubreddit("");
   

@@ -1,7 +1,10 @@
-const listener = window.location.hostname === "localhost" ? "http://localhost:3000/" : "https://reddt-backend.onrender.com/";
+const listener =
+  window.location.hostname === "localhost"
+    ? "http://localhost:3000/"
+    : "https://reddt-backend.onrender.com/";
 
-export async function getPosts(mode,subreddit,skip) {
-  console.log(listener + `posts/${mode}/${subreddit}`)
+export async function getPosts(mode, subreddit, skip) {
+  console.log(listener + `posts/${mode}/${subreddit}`);
   const res = await fetch(listener + `posts/${mode}/${skip}/${subreddit}`);
   const data = await res.json();
 
@@ -23,6 +26,8 @@ export async function createPost(data) {
     .catch((error) => {
       console.error("Error:", error);
     });
+    
+  
 }
 export async function updateVotes(data) {
   await fetch(listener + "posts/vote", {
@@ -40,7 +45,7 @@ export async function updateVotes(data) {
 
     .catch((error) => console.log(error));
 }
-export async function getPost(subreddit,user,slug){
+export async function getPost(subreddit, user, slug) {
   const res = await fetch(listener + `posts/get/${subreddit}/${user}/${slug}`);
   const data = await res.json();
   return data;

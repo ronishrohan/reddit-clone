@@ -5,7 +5,7 @@ const PostsContext = createContext();
 
 const PostsProvider = ({ children }) => {
   let [fetchID, setFetchID] = useState(1);
-  let [filterMode, setFilterMode] = useState("1");
+  let [filterMode, setFilterMode] = useState(window.localStorage.getItem("filter") ? window.localStorage.getItem("filter") : "1");
   let [subreddit, setSubreddit] = useState("");
   let [skip, setSkip] = useState(0);
   let [posts, setPosts] = useState([[]]);
@@ -15,7 +15,6 @@ const PostsProvider = ({ children }) => {
       let scrollY = window.scrollY;
       let height = document.documentElement.scrollHeight;
       let scrollHeight = window.innerHeight;
-      console.log(scrollY+scrollHeight, height*0.85)
       if(scrollY+scrollHeight > height*0.5){
         
         setScrolled(true);
@@ -46,6 +45,7 @@ const PostsProvider = ({ children }) => {
   }
   function updateFilterMode(mode) {
     setFilterMode(mode);
+    window.localStorage.setItem("filter", mode);
     console.log("change mode to ", mode);
   }
   function updateSkip() {

@@ -235,7 +235,7 @@ export const PostContainer = styled.div`
     position: relative;
     display: flex;
     #post-content {
-      margin-bottom: 20px;
+      min-height: 50px;
       max-height: 80px;
       overflow: hidden;
       font-family: "IBM Plex Sans";
@@ -243,6 +243,7 @@ export const PostContainer = styled.div`
       word-wrap: break-word;
     }
     #post-content-shadow {
+      
       pointer-events: none;
       background: linear-gradient(rgba(255, 255, 255, 0), #1a1a1b);
       height: 30px;

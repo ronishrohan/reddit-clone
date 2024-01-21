@@ -9,6 +9,9 @@ import {
   HeaderVoteButton,
   HeaderTitle,
 } from "./Main.styled";
+import Header from "./Header";
+import Post from "./Post";
+
 import { getPost } from "../../../../utils/postUtils";
 function Main() {
   const navigate = useNavigate();
@@ -33,30 +36,16 @@ function Main() {
         id="test"
         name="post-page-container"
         onClick={(e) => {
-          
-          if(e.target === e.currentTarget){
-        
-            navigate("/")
-            
+          if (e.target === e.currentTarget) {
+            navigate("/");
           }
-          
-          
         }}
       >
         <PostContainer>
-          <PostPageHeader>
-            <HeaderContainer>
-              <HeaderVoteButton>
-                <i className="fa-solid fa-up-long"></i>
-              </HeaderVoteButton>
-              <div>{post.upvotes}</div>
-              <HeaderVoteButton>
-                <i className="fa-solid fa-down-long"></i>
-              </HeaderVoteButton>
-              <HeaderTitle>{post.title}</HeaderTitle>
-            </HeaderContainer>
-          </PostPageHeader>
-          <PostBodyContainer></PostBodyContainer>
+          <Header post={post}></Header>
+          <PostBodyContainer>
+            <Post post={post}></Post>
+          </PostBodyContainer>
         </PostContainer>
       </PostPageContainer>
     </>

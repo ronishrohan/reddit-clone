@@ -13,10 +13,11 @@ import {
 } from "../Main.styled";
 import { createPost } from "../../../../utils/postUtils";
 import { useNavigate, useSearchParams } from "react-router-dom";
-
+import { PopupContext } from "../../../../components/outer/popup-context";
 import { PostsContext } from "../../../../store/posts-context";
 
 function SubmitForm() {
+  let popup = useContext(PopupContext);
   let [imgUrl, setUrl] = useState("");
   let postsData = useContext(PostsContext);
   
@@ -53,10 +54,11 @@ function SubmitForm() {
         image_link: imgUrl,
       };
       navigate("/");
-      await createPost(data);
-      setTimeout(() => {
+      await createPost(data).then(() => {
+        popup.showContent("post submitted successfully")
         postsData.updateFetchID();
-      }, 500);
+      });
+      
     }
   }
   
