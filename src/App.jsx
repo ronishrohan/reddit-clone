@@ -5,7 +5,7 @@ import Submit from "./pages/submit/Submit";
 import Subreddit from "./pages/subreddit/Subreddit";
 import Root from "./Root";
 import PostPage from "./pages/postpage/PostPage";
-import Popup from "./components/outer/popup";
+import Popup from "./components/outer/Popup";
 import { PopupContext } from "./components/outer/popup-context";
 import { useContext } from "react";
 const router = createBrowserRouter([
