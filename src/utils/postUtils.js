@@ -50,3 +50,25 @@ export async function getPost(subreddit, user, slug) {
   const data = await res.json();
   return data;
 }
+
+export const createUser = async (data) => {
+
+  const response = await fetch(listener + `users/add`, {
+
+    method: 'POST',
+
+    headers: {
+
+      'Content-Type': 'application/json'
+
+    },
+
+    body: JSON.stringify(data)
+
+  });
+
+  const res = await response.json();
+
+  console.log(res);
+
+};

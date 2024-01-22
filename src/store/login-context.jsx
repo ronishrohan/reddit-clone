@@ -1,10 +1,17 @@
 /* eslint-disable react/prop-types */
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 const LoginContext = createContext();
 
 const LoginProivder = ({children}) => {
     let [loggedIn, setLoggedIn] = useState(false);
-    return(<LoginContext.Provider value={{loggedIn}}>
+    function updateLoggedIn(){
+        console.log("triggered update")
+        setLoggedIn(true)
+    }
+    useEffect(() => {
+        console.log(loggedIn)
+    }, [loggedIn])
+    return(<LoginContext.Provider value={{loggedIn, updateLoggedIn}}>
         {children}
     </LoginContext.Provider>)
 }
