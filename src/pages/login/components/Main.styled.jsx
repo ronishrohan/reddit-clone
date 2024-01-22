@@ -1,5 +1,6 @@
-import {styled} from "styled-components"
+import {styled, keyframes} from "styled-components"
 import {card_styles, input_hover, input_styles, text_color_bright, text_color} from "../../../resources/resources"
+
 export const LoginPage = styled.div`
     position: absolute;
     height: 100%;
@@ -68,7 +69,7 @@ export const InputBox = styled.input`
     ${input_styles}
     width: 100%;
     font-size: 16px;
-    padding: 20px;
+    padding: 15px;
     box-sizing: border-box;
     border-radius: 5px;
     color: ${text_color_bright};
@@ -85,6 +86,8 @@ export const SubmitButton = styled.button`
     border-radius: 26px;
     font-size: 16px;
     padding: 26px;
+    line-height: 20px;
+    width: 150px;
     padding-block: 10px;
     box-sizing: border-box;
     color: ${text_color_bright};
@@ -94,4 +97,20 @@ export const SubmitButton = styled.button`
     &:hover{
         background-color: #df3b00;
     }
+    i{
+        text-align: center;
+        vertical-align: bottom;
+        display: inline-block;
+        line-height: 20px;
+    }
+`
+const loadingAnimation = keyframes`
+    0% {rotate: 0deg}
+    100% {rotate: 360deg}
+`
+
+export const Loading = styled.div`
+    animation-name: ${loadingAnimation};
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 `

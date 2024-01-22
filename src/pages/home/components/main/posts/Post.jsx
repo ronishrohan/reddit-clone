@@ -87,7 +87,7 @@ function Post({ post, others }) {
             </Link>
             <div id="post-dot"></div>
             <div id="post-by">
-              Posted by {post.createdBy} {formatDateTime(post.createdAt)}
+              Posted by u/{post.createdBy} {formatDateTime(post.createdAt)}
             </div>
           </div>
           <div id="post-title">

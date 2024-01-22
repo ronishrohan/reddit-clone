@@ -26,8 +26,6 @@ export async function createPost(data) {
     .catch((error) => {
       console.error("Error:", error);
     });
-    
-  
 }
 export async function updateVotes(data) {
   await fetch(listener + "posts/vote", {
@@ -52,23 +50,32 @@ export async function getPost(subreddit, user, slug) {
 }
 
 export const createUser = async (data) => {
-
   const response = await fetch(listener + `users/add`, {
-
-    method: 'POST',
+    method: "POST",
 
     headers: {
-
-      'Content-Type': 'application/json'
-
+      "Content-Type": "application/json",
     },
 
-    body: JSON.stringify(data)
-
+    body: JSON.stringify(data),
   });
 
   const res = await response.json();
-
-  console.log(res);
-
+  return res;
 };
+export const loginUser = async (data) => {
+  console.log(data)
+  const response = await fetch(listener + `users/login`, {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "application/json",
+    },
+
+    body: JSON.stringify(data),
+  });
+
+  const res = await response.json();
+  return res;
+};
+

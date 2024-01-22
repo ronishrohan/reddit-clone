@@ -1,19 +1,30 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
 const LoginContext = createContext();
+import { jwtDecode } from "jwt-decode";
+const LoginProivder = ({ children }) => {
+  let [loggedIn, setLoggedIn] = useState(
+    window.localStorage.getItem("token") !== null
+  );
+  let [username, setUsername] = useState("");
 
-const LoginProivder = ({children}) => {
-    let [loggedIn, setLoggedIn] = useState(false);
-    function updateLoggedIn(){
-        console.log("triggered update")
-        setLoggedIn(true)
+  function updateLoggedIn() {
+    console.log("triggered update");
+    setLoggedIn(true);
+  }
+  useEffect(() => {
+    console.log(loggedIn);
+    if (loggedIn) {
+      const token = window.localStorage.getItem("token");
+      const j = jwtDecode(token);
+      setUsername(j.username);
     }
-    useEffect(() => {
-        console.log(loggedIn)
-    }, [loggedIn])
-    return(<LoginContext.Provider value={{loggedIn, updateLoggedIn}}>
-        {children}
-    </LoginContext.Provider>)
-}
+  }, [loggedIn]);
+  return (
+    <LoginContext.Provider value={{ loggedIn, updateLoggedIn, username }}>
+      {children}
+    </LoginContext.Provider>
+  );
+};
 
-export {LoginContext, LoginProivder};
+export { LoginContext, LoginProivder };

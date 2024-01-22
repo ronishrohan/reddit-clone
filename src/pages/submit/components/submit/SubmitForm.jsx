@@ -15,8 +15,10 @@ import { createPost } from "../../../../utils/postUtils";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { PopupContext } from "../../../../components/outer/popup-context";
 import { PostsContext } from "../../../../store/posts-context";
+import { LoginContext } from "../../../../store/login-context";
 
 function SubmitForm() {
+  let login = useContext(LoginContext);
   let popup = useContext(PopupContext);
   let [imgUrl, setUrl] = useState("");
   let postsData = useContext(PostsContext);
@@ -48,7 +50,7 @@ function SubmitForm() {
         title: title.current.value,
         content: mode === "2" ? "" : content.current.value,
         subreddit: "r/" + subreddit.current.value,
-        createdBy: window.localStorage.getItem("name"),
+        createdBy: login.username,
         slug: slug,
         post_type: mode,
         image_link: imgUrl,

@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ProfileContainer, UsernameContainer } from './Navbar.styled'
+import { useContext } from 'react'
+import { LoginContext } from '../../store/login-context'
 function Profile() {
+  let login = useContext(LoginContext);
   return (
     <ProfileContainer>
       <i className="fa-solid fa-circle-user"></i>
       <UsernameContainer>
-        <div>{window.localStorage.getItem("name")}</div>
+        <div>{login.username}</div>
         <div>
           <i className="fa-solid fa-dharmachakra"></i>
-          <div>3.0k karma</div>
+          <div></div>
         </div>
       </UsernameContainer>
       <i className="fa-solid fa-angle-down"></i>
