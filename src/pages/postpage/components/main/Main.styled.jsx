@@ -182,7 +182,8 @@ export const PostText = styled.div`
   font-weight: 200;
   min-height: 300px;
 `;
-export const PostLink = styled.div`
+export const PostLink = styled.a`
+  text-decoration: none;
   font-size: 14px;
   color: #4aabe7;
   font-family: "IBM Plex Sans";

@@ -76,7 +76,7 @@ function Post({ post }) {
             </div>
           </PostImage>
         )}
-        {post.post_type === "3" && <PostLink>{post.content}</PostLink>}
+        {post.post_type === "3" && <PostLink href={post.content} >{post.content}</PostLink>}
       </PostContent>
     </PostContentContainer>
   );
