@@ -3,12 +3,14 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 
 import Home from "./pages/home/Home";
 import Submit from "./pages/submit/Submit";
+import Login from "./pages/login/Login";
 import Subreddit from "./pages/subreddit/Subreddit";
 import Root from "./Root";
 import PostPage from "./pages/postpage/PostPage";
 import Popup from "./components/outer/Popup";
 import { PopupContext } from "./components/outer/popup-context";
 import { useContext } from "react";
+import { LoginProivder } from "./store/login-context";
 const router = createHashRouter([
   {
     path: "/",
@@ -35,8 +37,13 @@ const router = createHashRouter([
           },
         ],
       },
+      
     ],
   },
+  {
+    path: "login",
+    element: <Login></Login>
+  }
 ]);
 
 function App() {
@@ -46,11 +53,11 @@ function App() {
         setPopup(popupData.content)
     }, [popupData.content])
   return (
-    <>
+    <LoginProivder>
       
         <RouterProvider router={router}></RouterProvider>
         <Popup content={popup} show={popupData.show}></Popup>
-      </>
+      </LoginProivder>
     
   );
 }

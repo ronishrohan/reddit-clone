@@ -11,8 +11,7 @@ function Posts({ subreddit }) {
   let postsData = useContext(PostsContext);
   let posts = postsData.posts;
   let updateSkip = postsData.updateSkip;
-
-
+  
   console.log(posts);
 
   return (
