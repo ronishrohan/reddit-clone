@@ -3,7 +3,7 @@ import styled from "styled-components";
 const font_color = "d7dadc";
 
 export const NavbarContainer = styled.div`
-z-index: 2;
+  z-index: 2;
   color: #${font_color};
   font-family: IBM Plex Sans, sans-serif;
   position: fixed;
@@ -50,7 +50,7 @@ export const CommunitiesContainer = styled.div`
   display: flex;
   flex: none;
   align-items: center;
-  
+
   border: 1px solid transparent;
   border-radius: 4px;
   height: 34px;
@@ -71,25 +71,23 @@ export const CommunitiesContainer = styled.div`
     padding-inline: 10px;
   }
   i:last-child {
-    
     box-sizing: border-box;
-    
+
     font-weight: 600;
   }
-  
 `;
 
 export const ProfileContainer = styled.div`
   cursor: pointer;
   margin-left: 10px;
   height: 42px;
-  
+  position: relative;
   display: flex;
   align-items: center;
   border: 1px solid transparent;
   border-radius: 4px;
-  padding-inline: 8px;
-  @media (max-width: 1210px){
+  box-sizing: border-box;
+  @media (max-width: 1210px) {
     height: 32px;
   }
   gap: 5px;
@@ -98,12 +96,41 @@ export const ProfileContainer = styled.div`
   }
   i {
     font-size: 26px;
+    margin-left: 10px;
   }
-  i:last-child {
-    
+  #drop {
+    margin-right: 10px;
     font-size: 14px;
-    color: #777777;
-    margin-inline: 4px;
+    transform: rotate(
+      ${({ isopen }) => (isopen === "true" ? "180deg" : "0deg")}
+    );
+  }
+`;
+export const ProfileDropdownContainer = styled.div`
+  position: absolute;
+  background-color: white;
+  bottom: -80px;
+  height: 80px;
+  width: 100%;
+  translate: -1px 0px;
+  background-color: #1a1a1b;
+  border: 1px solid #343536;
+  border-top: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const Logout = styled.button`
+  cursor: pointer;
+  border: none;
+  border-radius: 36px;
+  padding: 10px;
+  padding-inline: 20px;
+  font-family: "IBM Plex Sans";
+  color: white;
+  background-color: orangered;
+  &:hover{
+    background-color: #ff5414;
   }
 `;
 export const UsernameContainer = styled.div`
@@ -114,7 +141,7 @@ export const UsernameContainer = styled.div`
   font-size: 12px;
   gap: 2px;
 
-  @media (max-width: 1210px){
+  @media (max-width: 1210px) {
     display: none;
   }
 
@@ -126,18 +153,20 @@ export const UsernameContainer = styled.div`
   div i {
     color: orangered;
     font-size: 12px;
+    margin: 0;
   }
   div div {
     color: #afafaf;
   }
+  
 `;
 export const ActionsContainer = styled.div`
   flex: none;
-  
+
   height: 100%;
   align-items: center;
   display: flex;
-  & > div:first-child{
+  & > div:first-child {
     @media (max-width: 790px) {
       display: none;
     }
@@ -172,15 +201,12 @@ export const SearchContainer = styled.div`
     width: 100%;
   }
   input:focus & {
-    
   }
   &:hover {
     border-color: white;
     background-color: #1a1a1b;
   }
 `;
-
-
 
 export const ActionsButton = styled.div`
   color: #${font_color};
@@ -237,10 +263,10 @@ export const AdvertiseButton = styled.div`
 
 export const NotificationBadge = styled.div`
   border-radius: 50%;
-  
+
   height: 16px;
   width: 16px;
-  border: 2px solid #1a1a1b ;
+  border: 2px solid #1a1a1b;
   background-color: orangered;
   position: absolute;
   transform: translate(12px, -8px);
@@ -250,16 +276,15 @@ export const NotificationBadge = styled.div`
   color: white;
   font-size: 10px;
   font-weight: 600;
-  div{
+  div {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
-
   }
-`
+`;
 export const CommunitiesDropdown = styled.div`
   box-sizing: border-box;
   position: absolute;
@@ -289,18 +314,16 @@ export const CommunitiesDropdown = styled.div`
     font-family: "IBM Plex Sans";
     padding-inline: 20px;
     padding-left: 40px;
-    
   }
-  input:hover, :focus {
+  input:hover,
+  :focus {
     background-color: transparent;
     border: 1px solid #cbdadc;
   }
-  div{
+  div {
     position: absolute;
     left: 48px;
     font-family: "IBM Plex Sans";
     font-size: 14px;
   }
-  
-  
-`
+`;

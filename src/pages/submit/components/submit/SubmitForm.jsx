@@ -43,7 +43,7 @@ function SubmitForm() {
   async function handleCreatePost(e) {
     e.preventDefault();
     if (e.nativeEvent.submitter.name === "submit-button") {
-      let slug = title.current.value.replace(/ /g, "-");
+      let slug = title.current.value.replace(/ /g, "-").toLowerCase();
       e.preventDefault(true);
       console.log(title.current.value);
       let data = {

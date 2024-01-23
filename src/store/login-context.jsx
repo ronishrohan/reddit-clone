@@ -12,6 +12,9 @@ const LoginProivder = ({ children }) => {
     console.log("triggered update");
     setLoggedIn(true);
   }
+  function handleLogout(){
+    setLoggedIn(false);
+  }
   useEffect(() => {
     console.log(loggedIn);
     if (loggedIn) {
@@ -21,7 +24,7 @@ const LoginProivder = ({ children }) => {
     }
   }, [loggedIn]);
   return (
-    <LoginContext.Provider value={{ loggedIn, updateLoggedIn, username }}>
+    <LoginContext.Provider value={{ loggedIn, updateLoggedIn, username, handleLogout }}>
       {children}
     </LoginContext.Provider>
   );
